@@ -1,21 +1,22 @@
 import styled from "@emotion/styled";
 import { Spin } from "antd";
 import { ScreenContainer } from "components/lib";
-import { useDocumentTitle } from "utils";
+import { useDebounce, useDocumentTitle } from "utils";
 import { useKanbans } from "utils/kanban"
 import { useTasks } from "utils/task";
 import { CreateKanban } from "./create-kanban";
 import { KanbanColumn } from "./kanban-column";
 import { SearchPannel } from "./search-panal";
 import { TaskModal } from "./task-modal";
-import { useProjejctInUrl, useTasksSearchParams } from "./util";
+import { useKanbanSearchParams, useProjejctInUrl, useTasksSearchParams } from "./util";
 
 
 export const KanbanScreen = () => {
     const { data: currentProject } = useProjejctInUrl();
-    const { data: kanbans, isLoading: kanbanIsLoading } = useKanbans();
-    const [searchParams] = useTasksSearchParams()
-    const {data: allTasks = [], isLoading: taskIsloading} = useTasks(searchParams);
+    const { data: kanbans, isLoading: kanbanIsLoading } = useKanbans(useKanbanSearchParams());
+    const [searchParams] = useTasksSearchParams();
+    const debounceName = useDebounce(searchParams.name, 200)
+    const {data: allTasks = [], isLoading: taskIsloading} = useTasks({ ...searchParams, name: debounceName });
 
     const isLoading = taskIsloading || kanbanIsLoading
     useDocumentTitle('看板列表')

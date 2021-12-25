@@ -9,9 +9,10 @@ export const useConfig = <T>(queryKey: QueryKey, callback: (target: T, old?: T[]
         async onMutate(target: T) {
             console.log(target)
             const previousItems = queryClient.getQueriesData(queryKey);
+            console.log(queryKey, 'queryKey')
             queryClient.setQueryData(queryKey, (old?: T[]) => {
                 const newData = callback(target, old)
-                console.log(newData)
+                console.log(newData, old)
                 return newData
             })
             return { previousItems }

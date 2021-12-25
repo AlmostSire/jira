@@ -55,8 +55,9 @@ export const useTaskModal = () => {
     const startEdit = (id: number) => setParam({ editingTaskId: id })
     
     
+    
     return {
-        editingTaskId,
+        editingTaskId: Number(editingTaskId),
         //open,
         close,
         startEdit,

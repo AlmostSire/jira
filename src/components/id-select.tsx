@@ -10,8 +10,10 @@ interface IdSelectProps extends Omit<SelectProps, 'value' | 'onChange' | 'option
     options?: { name: string, id: number }[]
 }
 
+
 export const IdSelect = (props: IdSelectProps) => {
     const {value, onChange, defaultOptionName, options, ...restProps } = props
+    
     return (
         <Select 
             value={toNumber(value)} 

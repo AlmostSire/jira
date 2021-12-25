@@ -16,7 +16,6 @@ export const useProjectsSearchParams = () => {
 
 export const useProjectsQueryKey = () => {
     const [params] = useProjectsSearchParams();
-    console.log(params)
     return ['projects', params]
 }
 

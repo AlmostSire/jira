@@ -11,22 +11,23 @@ export const SearchPannel = () => {
     const [form] = Form.useForm()
 
     const reset = () => {
+        
+        form.resetFields()
         setSearchParams({
             typeId: undefined,
             processorId: undefined,
             tagId: undefined,
             name: undefined
         })
-        form.resetFields()
+        
     }
     const handleChange = (value: Task) => {
-        console.log(value)
         setSearchParams(value)
     }
     useMount(() => {
-        
-        form.resetFields()
         form.setFieldsValue(searchParams)
+        form.resetFields()
+        
     })
     return (
         <Form
