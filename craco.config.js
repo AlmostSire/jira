@@ -26,15 +26,15 @@ module.exports = {
 			cacheDirectory: false
 		},
 		plugins: [
-			[
-				"import",
-				{
-					"libraryName": "antd",
-					"libraryDirectory": "es",
-					"style": true, // `style: true` 会加载 less 文件
-				},
-				"antd"
-			],
+			// [
+			// 	"import",
+			// 	{
+			// 		"libraryName": "antd",
+			// 		"libraryDirectory": "es",
+			// 		"style": true, // `style: true` 会加载 less 文件
+			// 	},
+			// 	"antd"
+			// ],
 			// [
 			// 	"import",
 			// 	{

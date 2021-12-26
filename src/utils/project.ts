@@ -4,10 +4,13 @@ import { cleanObject } from "utils";
 import { useHttp } from "./http";
 import { useAddConfig, useDeleteConfig, useEditConfig } from 'utils/use-optimistic-options'
 
-export const useProjects = (param?: Partial<Project>) => {
+export const useProjects = (param: Partial<Project> = {}) => {
     const client = useHttp()
 
-    return useQuery<Project[]>(['projects', param], () => client('projects', { data: cleanObject(param || {}) }))
+    return useQuery<Project[]>(
+        ['projects', param],
+        () => client('projects', { data: param })
+    )
 
 }
 
@@ -54,9 +57,9 @@ export const useDeleteProject = (queryKey: QueryKey) => {
 
     return useMutation(
         ({ id }: { id: number }) => client(`projects/${id}`, {
-            method: 'DELETE' 
+            method: 'DELETE'
         }),
-         useDeleteConfig(queryKey)
+        useDeleteConfig(queryKey)
     )
 
 

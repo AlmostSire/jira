@@ -7,10 +7,14 @@ export const useUrlQueryParam = <T extends string>(keys: T[]) => {
     
     const param = useMemo(
         () => keys.reduce(
-            (prev, key) => ({
-                ...prev,
-                [key]: searchParams.get(key)
-            }),
+            (prev, key) => {
+                let obj = {...prev}
+                let value = searchParams.get(key)
+                if (value) {
+                    obj[key] = value
+                }
+                return obj
+            },
 
             {} as { [key in T]: string }
         ),

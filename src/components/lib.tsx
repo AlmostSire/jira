@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { Button, Spin, Typography } from "antd";
+import { Button, ButtonProps, Spin, Typography } from "antd";
 import { DevTools } from "jira-dev-tool";
 
 interface Props {
@@ -52,9 +52,9 @@ export const ErrorBox = ({ error }: { error: unknown }) => {
     return null
 }
 
-export const ButtonNoPadding = styled(Button)`
-    padding: 0;
-`
+export const ButtonNoPadding = (props: ButtonProps) => {
+    return <Button style={{ padding: 0 }} {...props}/>
+}
 export const ScreenContainer = styled.div`
     padding: 3.2rem;
     width: 100%;

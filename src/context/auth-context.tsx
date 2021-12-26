@@ -8,6 +8,7 @@ import { FullPageError, FullPageLoading } from 'components/lib';
 import * as authStore from 'store/auth.slice'
 import { useDispatch, useSelector } from 'react-redux';
 import { useQueryClient } from 'react-query';
+import { BrowserRouter as Router } from 'react-router-dom'
 
 export interface AuthForm {
     username: string;
@@ -59,7 +60,11 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
     // return <AuthContext.Provider value={{ user, login, register, logout }} children={children} />
 
-    return <>{children}</>
+    return (
+        <Router>
+            {children}
+        </Router>
+    )
 
 }
 

@@ -6,17 +6,18 @@ import { ProjectListScreen } from "screens/project-list"
 import { ProjectScreen } from 'screens/project'
 import { ReactComponent as SoftwareLogo } from 'assets/software-logo.svg'
 import { Routes, Route } from 'react-router'
-import { BrowserRouter as Router } from 'react-router-dom'
+
 import { resetRoute } from 'utils'
 import { ProjectModal } from "screens/project-list/project-modal"
 import { ProjectPopover } from "screens/project-list/project-popover"
+
 
 
 export const AuthenticatedApp = () => {
 
     return (
         <Container>
-            <Router>
+            
                 <PageHeader />
                 <Main>
                     <Routes>
@@ -26,10 +27,12 @@ export const AuthenticatedApp = () => {
                     </Routes>
                 </Main>
                 <ProjectModal />
-            </Router>
+            
         </Container>
     )
 }
+
+export default AuthenticatedApp
 
 const PageHeader = () => {
 

@@ -37,6 +37,8 @@ export const UnauthenticatedApp = () => {
     )
 }
 
+export default UnauthenticatedApp;
+
 const Title = styled.h2`
     margin-bottom: 2.4rem;
     color: rgb(94, 108, 132);
