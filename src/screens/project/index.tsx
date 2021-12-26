@@ -24,6 +24,12 @@ export const ProjectScreen = () => {
                     </Menu.Item>
                 </Menu>
             </Aside>
+            {/* <div style={{overflow: 'auto'}}>
+                <div style={{ height: 2000 }}>
+                测试布局
+                </div>
+                
+            </div> */}
             <Main>
                 
                 <Routes>
@@ -40,6 +46,8 @@ export const ProjectScreen = () => {
 const Container = styled.div` 
     display: grid;
     grid-template-columns: 16rem 1fr;
+    width: 100%;
+   
 `
 
 const Aside = styled.aside`
